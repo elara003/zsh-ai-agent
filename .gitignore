@@ -1,0 +1,14 @@
+.vscode/ 
+bin/ 
+obj/ 
+.exe 
+.suo 
+.user 
+.vspscc 
+.vssscc 
+.pdb 
+.cache 
+.csproj
+.user 
+.resharper 
+.sln.docstates
