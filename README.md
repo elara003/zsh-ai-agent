@@ -1,4 +1,4 @@
-# AI Agent Git Repository
+# ZSH AI Agent Git Repository
 
 This repository contains an AI agent that reads input from a user and converts it to zsh commands, executing them.
 
