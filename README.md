@@ -13,4 +13,4 @@ This repository contains an AI agent that reads input from a user and converts i
 - Converts input to zsh commands
 - Executes zsh commands
 
-
+![alt text](image-1.png)
