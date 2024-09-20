@@ -3,6 +3,7 @@ using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 using System.Diagnostics;
 
@@ -28,7 +29,7 @@ OpenAIPromptExecutionSettings openAIPromptExecutionSettings = new() 
  #pragma warning disable SKEXP0001
 // Create a history store the conversation
 var history = new ChatHistory();
-
+history.AddSystemMessage("You are a chatbot that will execute commands on zsh based on user natural language.");
 // Initiate a back-and-forth chat
 string? userInput;
 do {
@@ -76,13 +77,14 @@ public class ZshPlugin
                 CreateNoWindow = true
             };
             
-            Console.WriteLine($"Executing {fullCommand}");
 
             using (Process process = Process.Start(psi))
             {
                 process.WaitForExit();
+                Console.WriteLine($"Executing {fullCommand}");
                 string output = await process.StandardOutput.ReadToEndAsync();
                 string error = await process.StandardError.ReadToEndAsync();
+                Console.WriteLine(output);
 
                 // Return output or error message
                 if (!string.IsNullOrEmpty(error))
