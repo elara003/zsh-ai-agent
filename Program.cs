@@ -77,11 +77,11 @@ public class ZshPlugin
                 CreateNoWindow = true
             };
             
+            Console.WriteLine($"Executing {fullCommand}");
 
             using (Process process = Process.Start(psi))
             {
                 process.WaitForExit();
-                Console.WriteLine($"Executing {fullCommand}");
                 string output = await process.StandardOutput.ReadToEndAsync();
                 string error = await process.StandardError.ReadToEndAsync();
                 Console.WriteLine(output);
