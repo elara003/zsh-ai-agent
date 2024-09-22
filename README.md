@@ -5,7 +5,8 @@ This repository contains an AI agent that reads input from a user and converts i
 ## Usage
 
 1. Clone the repository
-2. Run the AI agent script
+2. export open ai api key `export OPEN_AI_API_KEY={{REPLACE_WITH_API_KEY}}`
+3. dotent run
 
 ## Features
 
